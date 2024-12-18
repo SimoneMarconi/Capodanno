@@ -4,12 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link href="css/style.css" rel="stylesheet">
+    <title>Capodanno Casa Luzio</title>
+    <!--<link href="css/style.css" rel="stylesheet">-->
 </head>
 
 <body>
-    <div>Federico Luzio Stupido<div>
+    <h1>Soldi Capodanno</h1>
+    <div><b>Antipasto</b> Budget: {{budget["Antipasto"]}}</div>
+    <button type="button" onclick="handleAntipasto()">Press</button>
+    <div><b>Primo</b> Budget: {{budget["Primo"]}}</div>
+    <button type="button" onclick="handlePrimo()">Press</button>
+    <div><b>Secondo</b> Budget: {{budget["Secondo"]}}</div>
+    <button type="button" onclick="handleSecondo()">Press</button>
+    <div><b>Dolce</b> Budget: {{budget["Dolce"]}}</div>
+    <button type="button" onclick="handleDolce()">Press</button>
+    <script src="{{ url_for( 'static', filename='handling.js' ) }}"></script>
 </body>
 
 </html>

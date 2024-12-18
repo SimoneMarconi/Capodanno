@@ -1,11 +1,25 @@
-from flask import Flask, send_from_directory
+from flask import Flask, render_template, send_from_directory
 
 app = Flask(__name__)
+
+budget = {
+    "Antipasto": 50,
+    "Primo": 50,
+    "Secondo": 50,
+    "Dolce": 50,
+}
 
 
 @app.route("/")
 def hello_world():
-    return send_from_directory("./templates", "index.html")
+    return render_template("index.html", budget=budget)
+
+
+@app.route("/Antipasto")
+def AntipastoPayed():
+    global budget
+    budget["Antipasto"] -= 1
+    return "ok"
 
 
 if __name__ == "__main__":
