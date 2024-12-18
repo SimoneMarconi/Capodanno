@@ -22,5 +22,26 @@ def AntipastoPayed():
     return "ok"
 
 
+@app.route("/Primo")
+def PrimoPayed():
+    global budget
+    budget["Primo"] -= 1
+    return "ok"
+
+
+@app.route("/Secondo")
+def SecondoPayed():
+    global budget
+    budget["Secondo"] -= 1
+    return "ok"
+
+
+@app.route("/Dolce")
+def DolcePayed():
+    global budget
+    budget["Dolce"] -= 1
+    return "ok"
+
+
 if __name__ == "__main__":
     app.run(debug=True)

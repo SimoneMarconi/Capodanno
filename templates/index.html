@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Capodanno Casa Luzio</title>
-    <!--<link href="css/style.css" rel="stylesheet">-->
+    <link href="static/style.css" rel="stylesheet">
 </head>
 
 <body>
     <h1>Soldi Capodanno</h1>
     <div><b>Antipasto</b> Budget: {{budget["Antipasto"]}}</div>
-    <button type="button" onclick="handleAntipasto()">Press</button>
+    <button class="Update" id="AntipastoButton" type="button" onclick="handleAntipasto()">Aggiorna</button>
     <div><b>Primo</b> Budget: {{budget["Primo"]}}</div>
-    <button type="button" onclick="handlePrimo()">Press</button>
+    <button class="Update" id="PrimoButton" type="button" onclick="handlePrimo()">Aggiorna</button>
     <div><b>Secondo</b> Budget: {{budget["Secondo"]}}</div>
-    <button type="button" onclick="handleSecondo()">Press</button>
+    <button class="Update" id="SecondoButton" type="button" onclick="handleSecondo()">Aggiorna</button>
     <div><b>Dolce</b> Budget: {{budget["Dolce"]}}</div>
-    <button type="button" onclick="handleDolce()">Press</button>
+    <button class="Update" id="DolceButton" type="button" onclick="handleDolce()">Aggiorna</button>
     <script src="{{ url_for( 'static', filename='handling.js' ) }}"></script>
 </body>
 

@@ -4,16 +4,16 @@ async function handleAntipasto() {
 }
 
 async function handlePrimo() {
-  await fetch("/Antipasto");
+  await fetch("/Primo");
   location.reload();
 }
 
 async function handleSecondo() {
-  await fetch("/Antipasto");
+  await fetch("/Secondo");
   location.reload();
 }
 
 async function handleDolce() {
-  await fetch("/Antipasto");
+  await fetch("/Dolce");
   location.reload();
 }
