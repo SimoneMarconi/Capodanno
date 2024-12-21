@@ -1,17 +1,17 @@
 from flask import Flask, render_template, send_from_directory
+import json
 
 app = Flask(__name__)
 
-budget = {
-    "Antipasto": 50,
-    "Primo": 50,
-    "Secondo": 50,
-    "Dolce": 50,
-}
+budget = {}
 
 
 @app.route("/")
 def hello_world():
+    global budget
+    with open("./data/store.json", "r") as f:
+        budget = json.load(f)
+        f.close()
     return render_template("index.html", budget=budget)
 
 
@@ -19,6 +19,9 @@ def hello_world():
 def AntipastoPayed():
     global budget
     budget["Antipasto"] -= 1
+    with open("./data/store.json", "w") as f:
+        f.write(json.dumps(budget))
+        f.close()
     return "ok"
 
 
@@ -26,6 +29,9 @@ def AntipastoPayed():
 def PrimoPayed():
     global budget
     budget["Primo"] -= 1
+    with open("./data/store.json", "w") as f:
+        f.write(json.dumps(budget))
+        f.close()
     return "ok"
 
 
@@ -33,6 +39,9 @@ def PrimoPayed():
 def SecondoPayed():
     global budget
     budget["Secondo"] -= 1
+    with open("./data/store.json", "w") as f:
+        f.write(json.dumps(budget))
+        f.close()
     return "ok"
 
 
@@ -40,6 +49,9 @@ def SecondoPayed():
 def DolcePayed():
     global budget
     budget["Dolce"] -= 1
+    with open("./data/store.json", "w") as f:
+        f.write(json.dumps(budget))
+        f.close()
     return "ok"
 
 
