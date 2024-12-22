@@ -74,5 +74,18 @@ def Dolce():
     return ""
 
 
+@app.route("/secret_reset")
+def reset():
+    global budget
+    budget["AntipastoUsed"] = 0
+    budget["PrimoUsed"] = 0
+    budget["SecondoUsed"] = 0
+    budget["DolceUsed"] = 0
+    with open(dataFile, "w") as f:
+        f.write(json.dumps(budget))
+        f.close()
+    return "Done"
+
+
 if __name__ == "__main__":
     app.run(debug=True)
