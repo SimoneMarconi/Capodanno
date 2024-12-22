@@ -27,7 +27,7 @@ def ls():
 def AntipastoPayed():
     global budget
     budget["Antipasto"] -= 1
-    with open("./data/store.json", "w") as f:
+    with open(".mysite/data/store.json", "w") as f:
         f.write(json.dumps(budget))
         f.close()
     return "ok"
