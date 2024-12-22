@@ -1,7 +1,9 @@
-from flask import Flask, jsonify, render_template, request, Response
+from flask import Flask, jsonify, render_template, request
 import json
 
 app = Flask(__name__)
+
+dataFile = "./mysite/data/store.json"
 
 budget = {}
 
@@ -9,7 +11,8 @@ budget = {}
 @app.route("/")
 def Root():
     global budget
-    with open("./data/store.json", "r") as f:
+    global dataFile
+    with open(dataFile, "r") as f:
         budget = json.load(f)
         f.close()
     return render_template("index.html", budget=budget)
@@ -22,7 +25,7 @@ def Antipasto():
         data = request.get_json()
         amount = data["amount"]
         budget["AntipastoUsed"] += amount
-        with open("./data/store.json", "w") as f:
+        with open(dataFile, "w") as f:
             f.write(json.dumps(budget))
             f.close()
         return "ok"
@@ -36,7 +39,7 @@ def Primo():
         data = request.get_json()
         amount = data["amount"]
         budget["PrimoUsed"] += amount
-        with open("./data/store.json", "w") as f:
+        with open(dataFile, "w") as f:
             f.write(json.dumps(budget))
             f.close()
         return "ok"
@@ -50,7 +53,7 @@ def Secondo():
         data = request.get_json()
         amount = data["amount"]
         budget["SecondoUsed"] += amount
-        with open("./data/store.json", "w") as f:
+        with open(dataFile, "w") as f:
             f.write(json.dumps(budget))
             f.close()
         return "ok"
@@ -64,7 +67,7 @@ def Dolce():
         data = request.get_json()
         amount = data["amount"]
         budget["DolceUsed"] += amount
-        with open("./data/store.json", "w") as f:
+        with open(dataFile, "w") as f:
             f.write(json.dumps(budget))
             f.close()
         return "ok"
