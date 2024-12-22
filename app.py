@@ -18,9 +18,9 @@ def hello_world():
 
 @app.route("/ls")
 def ls():
-    print(f"pwd: {os.getcwd()}")
-    print(f"ls: {os.listdir()}")
-    return "ok"
+    pwd = f"pwd: {os.getcwd()}"
+    ls = f"ls: {os.listdir()}"
+    return pwd + "\n" + ls
 
 
 @app.route("/Antipasto")
