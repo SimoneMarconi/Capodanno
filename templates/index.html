@@ -10,7 +10,8 @@
 
 <body>
     <h1>Soldi Capodanno</h1>
-    <h2>Totale: {{budget["Totale"]}}</h2>
+    <h2>Totale: {{budget["Totale"] - budget["AntipastoUsed"] - budget["PrimoUsed"] - budget["SecondoUsed"] -
+        budget["DolceUsed"]}}</h2>
     <div id="AntipastoDiv"><b>Antipasto</b> Budget: {{budget["AntipastoUsed"]}}/{{budget["Antipasto"]}}</div>
     <button class="Update" id="AntipastoButton" type="button" onclick="handleAntipasto()">Aggiorna</button>
     <div id="PrimoDiv"><b>Primo</b> Budget: {{budget["PrimoUsed"]}}/{{budget["Primo"]}}</div>
