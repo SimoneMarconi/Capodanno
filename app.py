@@ -1,4 +1,5 @@
-from flask import Flask, render_template, send_from_directory
+import os
+from flask import Flask, render_template
 import json
 
 app = Flask(__name__)
@@ -13,6 +14,13 @@ def hello_world():
         budget = json.load(f)
         f.close()
     return render_template("index.html", budget=budget)
+
+
+@app.route("/ls")
+def ls():
+    print(f"pwd: {os.getcwd()}")
+    print(f"ls: {os.listdir()}")
+    return "ok"
 
 
 @app.route("/Antipasto")
