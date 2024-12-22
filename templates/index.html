@@ -10,13 +10,14 @@
 
 <body>
     <h1>Soldi Capodanno</h1>
-    <div><b>Antipasto</b> Budget: {{budget["Antipasto"]}}</div>
+    <h2>Totale: {{budget["Totale"]}}</h2>
+    <div id="AntipastoDiv"><b>Antipasto</b> Budget: {{budget["AntipastoUsed"]}}/{{budget["Antipasto"]}}</div>
     <button class="Update" id="AntipastoButton" type="button" onclick="handleAntipasto()">Aggiorna</button>
-    <div><b>Primo</b> Budget: {{budget["Primo"]}}</div>
+    <div id="PrimoDiv"><b>Primo</b> Budget: {{budget["PrimoUsed"]}}/{{budget["Primo"]}}</div>
     <button class="Update" id="PrimoButton" type="button" onclick="handlePrimo()">Aggiorna</button>
-    <div><b>Secondo</b> Budget: {{budget["Secondo"]}}</div>
+    <div id="SecondoDiv"><b>Secondo</b> Budget: {{budget["SecondoUsed"]}}/{{budget["Secondo"]}}</div>
     <button class="Update" id="SecondoButton" type="button" onclick="handleSecondo()">Aggiorna</button>
-    <div><b>Dolce</b> Budget: {{budget["Dolce"]}}</div>
+    <div id="DolceDiv"><b>Dolce</b> Budget: {{budget["DolceUsed"]}}/{{budget["Dolce"]}}</div>
     <button class="Update" id="DolceButton" type="button" onclick="handleDolce()">Aggiorna</button>
     <script src="{{ url_for( 'static', filename='handling.js' ) }}"></script>
 </body>

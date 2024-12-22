@@ -1,5 +1,4 @@
-import os
-from flask import Flask, render_template
+from flask import Flask, jsonify, render_template, request, Response
 import json
 
 app = Flask(__name__)
@@ -8,59 +7,68 @@ budget = {}
 
 
 @app.route("/")
-def hello_world():
+def Root():
     global budget
-    with open("./mysite/data/store.json", "r") as f:
+    with open("./data/store.json", "r") as f:
         budget = json.load(f)
         f.close()
     return render_template("index.html", budget=budget)
 
 
-@app.route("/ls")
-def ls():
-    pwd = f"pwd: {os.getcwd()}"
-    ls = f"ls: {os.listdir()}"
-    return pwd + "\n" + ls
-
-
-@app.route("/Antipasto")
-def AntipastoPayed():
+@app.route("/Antipasto", methods=["POST"])
+def Antipasto():
     global budget
-    budget["Antipasto"] -= 1
-    with open("./mysite/data/store.json", "w") as f:
-        f.write(json.dumps(budget))
-        f.close()
-    return "ok"
+    if request.method == "POST":
+        data = request.get_json()
+        amount = data["amount"]
+        budget["AntipastoUsed"] += amount
+        with open("./data/store.json", "w") as f:
+            f.write(json.dumps(budget))
+            f.close()
+        return "ok"
+    return ""
 
 
-@app.route("/Primo")
-def PrimoPayed():
+@app.route("/Primo", methods=["POST"])
+def Primo():
     global budget
-    budget["Primo"] -= 1
-    with open("./mysite/data/store.json", "w") as f:
-        f.write(json.dumps(budget))
-        f.close()
-    return "ok"
+    if request.method == "POST":
+        data = request.get_json()
+        amount = data["amount"]
+        budget["PrimoUsed"] += amount
+        with open("./data/store.json", "w") as f:
+            f.write(json.dumps(budget))
+            f.close()
+        return "ok"
+    return ""
 
 
-@app.route("/Secondo")
-def SecondoPayed():
+@app.route("/Secondo", methods=["POST"])
+def Secondo():
     global budget
-    budget["Secondo"] -= 1
-    with open("./mysite/data/store.json", "w") as f:
-        f.write(json.dumps(budget))
-        f.close()
-    return "ok"
+    if request.method == "POST":
+        data = request.get_json()
+        amount = data["amount"]
+        budget["SecondoUsed"] += amount
+        with open("./data/store.json", "w") as f:
+            f.write(json.dumps(budget))
+            f.close()
+        return "ok"
+    return ""
 
 
-@app.route("/Dolce")
-def DolcePayed():
+@app.route("/Dolce", methods=["POST"])
+def Dolce():
     global budget
-    budget["Dolce"] -= 1
-    with open("./mysite/data/store.json", "w") as f:
-        f.write(json.dumps(budget))
-        f.close()
-    return "ok"
+    if request.method == "POST":
+        data = request.get_json()
+        amount = data["amount"]
+        budget["DolceUsed"] += amount
+        with open("./data/store.json", "w") as f:
+            f.write(json.dumps(budget))
+            f.close()
+        return "ok"
+    return ""
 
 
 if __name__ == "__main__":
