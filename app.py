@@ -10,7 +10,7 @@ budget = {}
 @app.route("/")
 def hello_world():
     global budget
-    with open("./data/store.json", "r") as f:
+    with open(".mysite/data/store.json", "r") as f:
         budget = json.load(f)
         f.close()
     return render_template("index.html", budget=budget)
@@ -37,7 +37,7 @@ def AntipastoPayed():
 def PrimoPayed():
     global budget
     budget["Primo"] -= 1
-    with open("./data/store.json", "w") as f:
+    with open(".mysite/data/store.json", "w") as f:
         f.write(json.dumps(budget))
         f.close()
     return "ok"
@@ -47,7 +47,7 @@ def PrimoPayed():
 def SecondoPayed():
     global budget
     budget["Secondo"] -= 1
-    with open("./data/store.json", "w") as f:
+    with open(".mysite/data/store.json", "w") as f:
         f.write(json.dumps(budget))
         f.close()
     return "ok"
@@ -57,7 +57,7 @@ def SecondoPayed():
 def DolcePayed():
     global budget
     budget["Dolce"] -= 1
-    with open("./data/store.json", "w") as f:
+    with open(".mysite/data/store.json", "w") as f:
         f.write(json.dumps(budget))
         f.close()
     return "ok"
