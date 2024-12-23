@@ -14,12 +14,16 @@
         budget["DolceUsed"]}}</h2>
     <div id="AntipastoDiv"><b>Antipasto</b> Budget: {{budget["AntipastoUsed"]}}/{{budget["Antipasto"]}}</div>
     <button class="Update" id="AntipastoButton" type="button" onclick="handleAntipasto()">Aggiorna</button>
+    <button class="Reset" id="AntipastoReset" type="button" onclick="resetAntipasto()">Reset</button>
     <div id="PrimoDiv"><b>Primo</b> Budget: {{budget["PrimoUsed"]}}/{{budget["Primo"]}}</div>
     <button class="Update" id="PrimoButton" type="button" onclick="handlePrimo()">Aggiorna</button>
+    <button class="Reset" id="PrimoReset" type="button" onclick="resetPrimo()">Reset</button>
     <div id="SecondoDiv"><b>Secondo</b> Budget: {{budget["SecondoUsed"]}}/{{budget["Secondo"]}}</div>
     <button class="Update" id="SecondoButton" type="button" onclick="handleSecondo()">Aggiorna</button>
+    <button class="Reset" id="SecondoReset" type="button" onclick="resetSecondo()">Reset</button>
     <div id="DolceDiv"><b>Dolce</b> Budget: {{budget["DolceUsed"]}}/{{budget["Dolce"]}}</div>
     <button class="Update" id="DolceButton" type="button" onclick="handleDolce()">Aggiorna</button>
+    <button class="Reset" id="DolceReset" type="button" onclick="resetDolce()">Reset</button>
     <script src="{{ url_for( 'static', filename='handling.js' ) }}"></script>
 </body>
 

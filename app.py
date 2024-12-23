@@ -23,8 +23,11 @@ def Antipasto():
     global budget
     if request.method == "POST":
         data = request.get_json()
-        amount = data["amount"]
-        budget["AntipastoUsed"] += amount
+        if data["action"] == "reset":
+            budget["AntipastoUsed"] = 0
+        else:
+            amount = data["amount"]
+            budget["AntipastoUsed"] += amount
         with open(dataFile, "w") as f:
             f.write(json.dumps(budget))
             f.close()
@@ -37,8 +40,11 @@ def Primo():
     global budget
     if request.method == "POST":
         data = request.get_json()
-        amount = data["amount"]
-        budget["PrimoUsed"] += amount
+        if data["action"] == "reset":
+            budget["PrimoUsed"] = 0
+        else:
+            amount = data["amount"]
+            budget["PrimoUsed"] += amount
         with open(dataFile, "w") as f:
             f.write(json.dumps(budget))
             f.close()
@@ -51,8 +57,11 @@ def Secondo():
     global budget
     if request.method == "POST":
         data = request.get_json()
-        amount = data["amount"]
-        budget["SecondoUsed"] += amount
+        if data["action"] == "reset":
+            budget["SecondoUsed"] = 0
+        else:
+            amount = data["amount"]
+            budget["SecondoUsed"] += amount
         with open(dataFile, "w") as f:
             f.write(json.dumps(budget))
             f.close()
@@ -65,8 +74,11 @@ def Dolce():
     global budget
     if request.method == "POST":
         data = request.get_json()
-        amount = data["amount"]
-        budget["DolceUsed"] += amount
+        if data["action"] == "reset":
+            budget["DolceUsed"] = 0
+        else:
+            amount = data["amount"]
+            budget["DolceUsed"] += amount
         with open(dataFile, "w") as f:
             f.write(json.dumps(budget))
             f.close()
@@ -74,7 +86,7 @@ def Dolce():
     return ""
 
 
-@app.route("/secret_reset")
+@app.route("/total_reset")
 def reset():
     global budget
     budget["AntipastoUsed"] = 0
