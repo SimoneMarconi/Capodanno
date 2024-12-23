@@ -12,16 +12,43 @@
     <h1>Soldi Capodanno</h1>
     <h2>Totale: {{budget["Totale"] - budget["AntipastoUsed"] - budget["PrimoUsed"] - budget["SecondoUsed"] -
         budget["DolceUsed"]}}</h2>
-    <div id="AntipastoDiv"><b>Antipasto</b> Budget: {{budget["AntipastoUsed"]}}/{{budget["Antipasto"]}}</div>
+    <div id="AntipastoDiv"><b>Antipasto</b> Budget:
+        {%if budget["AntipastoUsed"] > budget["Antipasto"]%}
+        <p class="Para" style="color: red; display: inline;">{{budget["AntipastoUsed"]}}/{{budget["Antipasto"]}}</p>
+        {%elif budget["AntipastoUsed"] < budget["Antipasto"]%} <p class="Para">
+            {{budget["AntipastoUsed"]}}/{{budget["Antipasto"]}}
+            </p>
+            {%endif%}
+    </div>
     <button class="Update" id="AntipastoButton" type="button" onclick="handleAntipasto()">Aggiorna</button>
     <button class="Reset" id="AntipastoReset" type="button" onclick="resetAntipasto()">Reset</button>
-    <div id="PrimoDiv"><b>Primo</b> Budget: {{budget["PrimoUsed"]}}/{{budget["Primo"]}}</div>
+    <div id="PrimoDiv"><b>Primo</b> Budget:
+        {%if budget["PrimoUsed"] > budget["Primo"]%}
+        <p class"Para" style="color: red; display: inline;">{{budget["PrimoUsed"]}}/{{budget["Primo"]}}</p>
+        {%elif budget["PrimoUsed"] < budget["Primo"]%} <p class="Para">{{budget["PrimoUsed"]}}/{{budget["Primo"]}}
+            </p>
+            {%endif%}
+    </div>
     <button class="Update" id="PrimoButton" type="button" onclick="handlePrimo()">Aggiorna</button>
     <button class="Reset" id="PrimoReset" type="button" onclick="resetPrimo()">Reset</button>
-    <div id="SecondoDiv"><b>Secondo</b> Budget: {{budget["SecondoUsed"]}}/{{budget["Secondo"]}}</div>
+    <div id="SecondoDiv"><b>Secondo</b> Budget:
+        {%if budget["SecondoUsed"] > budget["Secondo"]%}
+        <p class"Para" style="color: red; display: inline;">{{budget["SecondoUsed"]}}/{{budget["Secondo"]}}</p>
+        {%elif budget["SecondoUsed"] < budget["Secondo"]%} <p class="Para">
+            {{budget["SecondoUsed"]}}/{{budget["Secondo"]}}
+            </p>
+            {%endif%}
+    </div>
     <button class="Update" id="SecondoButton" type="button" onclick="handleSecondo()">Aggiorna</button>
     <button class="Reset" id="SecondoReset" type="button" onclick="resetSecondo()">Reset</button>
-    <div id="DolceDiv"><b>Dolce</b> Budget: {{budget["DolceUsed"]}}/{{budget["Dolce"]}}</div>
+    <div id="DolceDiv"><b>Dolce</b> Budget:
+        {%if budget["DolceUsed"] > budget["Dolce"]%}
+        <p class"Para" style="color: red; display: inline;">{{budget["DolceUsed"]}}/{{budget["Dolce"]}}</p>
+        {%elif budget["DolceUsed"] < budget["Dolce"]%} <p class="Para">
+            {{budget["DolceUsed"]}}/{{budget["Dolce"]}}
+            </p>
+            {%endif%}
+    </div>
     <button class="Update" id="DolceButton" type="button" onclick="handleDolce()">Aggiorna</button>
     <button class="Reset" id="DolceReset" type="button" onclick="resetDolce()">Reset</button>
     <script src="{{ url_for( 'static', filename='handling.js' ) }}"></script>

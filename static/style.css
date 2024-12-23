@@ -12,3 +12,13 @@ body {
     background-color: #3480eb;
     color: white;
 }
+
+.Reset {
+    border-radius: 20%;
+    background-color: red;
+    color: white;
+}
+
+.Para {
+    display: inline;
+}
