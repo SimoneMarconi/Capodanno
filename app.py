@@ -86,6 +86,40 @@ def Dolce():
     return ""
 
 
+@app.route("/Bere", methods=["POST"])
+def Bere():
+    global budget
+    if request.method == "POST":
+        data = request.get_json()
+        if data["action"] == "reset":
+            budget["BereUsed"] = 0
+        else:
+            amount = data["amount"]
+            budget["BereUsed"] += amount
+        with open(dataFile, "w") as f:
+            f.write(json.dumps(budget))
+            f.close()
+        return "ok"
+    return ""
+
+
+@app.route("/Botti", methods=["POST"])
+def Botti():
+    global budget
+    if request.method == "POST":
+        data = request.get_json()
+        if data["action"] == "reset":
+            budget["BottiUsed"] = 0
+        else:
+            amount = data["amount"]
+            budget["BottiUsed"] += amount
+        with open(dataFile, "w") as f:
+            f.write(json.dumps(budget))
+            f.close()
+        return "ok"
+    return ""
+
+
 @app.route("/total_reset")
 def reset():
     global budget

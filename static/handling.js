@@ -14,6 +14,14 @@ async function handleDolce() {
   await handleUpdate("Dolce");
 }
 
+async function handleBere() {
+  await handleUpdate("Bere");
+}
+
+async function handleBotti() {
+  await handleUpdate("Botti");
+}
+
 async function resetAntipasto() {
   await handleReset("Antipasto");
 }
@@ -28,6 +36,14 @@ async function resetSecondo() {
 
 async function resetDolce() {
   await handleReset("Dolce");
+}
+
+async function resetBere() {
+  await handleReset("Bere");
+}
+
+async function resetBotti() {
+  await handleReset("Botti");
 }
 
 async function handleUpdate(target) {

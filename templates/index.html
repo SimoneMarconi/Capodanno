@@ -10,8 +10,8 @@
 
 <body>
     <h1>Soldi Capodanno</h1>
-    <h2>Totale: {{budget["Totale"] - budget["AntipastoUsed"] - budget["PrimoUsed"] - budget["SecondoUsed"] -
-        budget["DolceUsed"]}}</h2>
+    <h2>Totale Rimanente: {{budget["Totale"] - budget["AntipastoUsed"] - budget["PrimoUsed"] - budget["SecondoUsed"] -
+        budget["DolceUsed"] - budget["BereUsed"] - budget["BottiUsed"]}}</h2>
     <div id="AntipastoDiv"><b>Antipasto</b> Budget:
         {%if budget["AntipastoUsed"] > budget["Antipasto"]%}
         <p class="Para" style="color: red; display: inline;">{{budget["AntipastoUsed"]}}/{{budget["Antipasto"]}}</p>
@@ -51,6 +51,26 @@
     </div>
     <button class="Update" id="DolceButton" type="button" onclick="handleDolce()">Aggiorna</button>
     <button class="Reset" id="DolceReset" type="button" onclick="resetDolce()">Reset</button>
+    <div id="BereDiv"><b>Bere</b> Budget:
+        {%if budget["BereUsed"] > budget["Bere"]%}
+        <p class"Para" style="color: red; display: inline;">{{budget["BereUsed"]}}/{{budget["Bere"]}}</p>
+        {%elif budget["BereUsed"] < budget["Bere"]%} <p class="Para">
+            {{budget["BereUsed"]}}/{{budget["Bere"]}}
+            </p>
+            {%endif%}
+    </div>
+    <button class="Update" id="BereButton" type="button" onclick="handleBere()">Aggiorna</button>
+    <button class="Reset" id="BereReset" type="button" onclick="resetBere()">Reset</button>
+    <div id="BottiDiv"><b>Botti</b> Budget:
+        {%if budget["BottiUsed"] > budget["Botti"]%}
+        <p class"Para" style="color: red; display: inline;">{{budget["BottiUsed"]}}/{{budget["Botti"]}}</p>
+        {%elif budget["BottiUsed"] < budget["Botti"]%} <p class="Para">
+            {{budget["BottiUsed"]}}/{{budget["Botti"]}}
+            </p>
+            {%endif%}
+    </div>
+    <button class="Update" id="BottiButton" type="button" onclick="handleBotti()">Aggiorna</button>
+    <button class="Reset" id="BottiReset" type="button" onclick="resetBotti()">Reset</button>
     <script src="{{ url_for( 'static', filename='handling.js' ) }}"></script>
 </body>
 
