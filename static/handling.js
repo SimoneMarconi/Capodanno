@@ -57,7 +57,10 @@ async function handleUpdate(target) {
   submit.type = "button";
   submit.textContent = "Invia";
   submit.onclick = async () => {
-    const amount = parseInt(formInput.value);
+    if (formInput.value.includes(",")) {
+      formInput.value = formInput.value.replace(",", ".");
+    }
+    let amount = parseFloat(formInput.value);
     if (isNaN(amount)) {
       alert("Devi inserire un numero valido");
       return;
