@@ -57,29 +57,7 @@ async function handleUpdate(target) {
   submit.type = "button";
   submit.textContent = "Invia";
   submit.onclick = async () => {
-    if (formInput.value.includes(",")) {
-      formInput.value = formInput.value.replace(",", ".");
-    }
-    let amount = parseFloat(formInput.value);
-    if (isNaN(amount)) {
-      alert("Devi inserire un numero valido");
-      return;
-    }
-    try {
-      const response = await fetch(`/${target}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ amount: amount, action: "add" }),
-      });
-      if (response.ok) {
-        alert("Operazione effettuata con successo");
-      }
-      location.reload();
-    } catch {
-      alert("Qualcosa è andato storto");
-    }
+    makeRequest(target, getAmount(formInput.value));
   };
   formInput.name = "Importo";
   form.appendChild(formInput);
@@ -89,9 +67,40 @@ async function handleUpdate(target) {
   form.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
+      makeRequest(target, getAmount(formInput.value));
     }
   });
   div.appendChild(form);
+}
+
+function getAmount(rowAmount) {
+  if (rowAmount.includes(",")) {
+    rowAmount = rowAmount.replace(",", ".");
+  }
+  amount = parseFloat(rowAmount);
+  if (isNaN(amount)) {
+    alert("Devi inserire un numero valido");
+    return;
+  }
+  return amount;
+}
+
+async function makeRequest(target, amount) {
+  try {
+    const response = await fetch(`/${target}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ amount: amount, action: "add" }),
+    });
+    if (response.ok) {
+      alert("Operazione effettuata con successo");
+    }
+    location.reload();
+  } catch {
+    alert("Qualcosa è andato storto");
+  }
 }
 
 async function handleReset(target) {
