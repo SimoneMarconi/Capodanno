@@ -1,0 +1,106 @@
+* {
+    background-color: #D3BDAF;
+    font-family: "Itim", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48px;
+}
+
+#title {
+    color: #45220c;
+}
+
+#subLine {
+    display: flex;
+}
+
+
+#shuffleB {
+    border: none;
+    text-align: center;
+    background-color: #d44b1e;
+    border-radius: 20px;
+    color: white;
+    height: 60px;
+    width: 300px;
+    line-height: 40px;
+    margin-right: 10px;
+}
+
+
+#shuffleB:hover {
+    background-color: #a13a18;
+    border-color: #7d2b10;
+    color: #fff0e3;
+    cursor: pointer;
+}
+
+#subscribeB {
+    border: none;
+    text-align: center;
+    background-color: #E9AB84;
+    border-radius: 20px;
+    color: white;
+    height: 60px;
+    width: 300px;
+    line-height: 40px;
+    margin-right: 10px;
+}
+
+#subscribeB:hover {
+    background-color: #D5896A;
+    border-color: #7A4B3A;
+    color: #fff0e3;
+    cursor: pointer;
+}
+
+#nameInput {
+    border-radius: 20px;
+    background-color: white;
+}
+
+#nameContainer {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 100px;
+}
+
+
+#pairContainer {
+    display: none;
+    margin-top: 50px;
+    grid-template-columns: auto auto auto;
+    grid-gap: 100px;
+}
+
+
+.nameCard1 {
+    border: solid;
+    border-color: #61382b;
+    border-radius: 20px;
+    background-color: #9B5A44;
+    color: white;
+    width: 300px;
+    text-align: center;
+}
+
+.nameCard2 {
+    border: solid;
+    border-color: #b5773e;
+    border-radius: 20px;
+    background-color: #E2954D;
+    color: white;
+    width: 300px;
+    text-align: center;
+}
+
+.nameCard3 {
+    border: solid;
+    border-color: #b5773e;
+    border-radius: 20px;
+    background-color: #DCA552;
+    color: white;
+    width: 300px;
+    text-align: center;
+}

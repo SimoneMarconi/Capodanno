@@ -1,7 +1,14 @@
 from flask import Flask, render_template, request
 import json
+from flask_socketio import SocketIO
+from database import addPersona, clearCoppie, getPersone
+from shuffle import shuffle
 
 app = Flask(__name__)
+
+socket = SocketIO(app)
+
+sid = None
 
 dataFile = "./data/store.json"
 
@@ -131,6 +138,32 @@ def reset():
         f.write(json.dumps(budget))
         f.close()
     return "Done"
+
+
+@app.route("/random")
+def random():
+    return render_template("random.html")
+
+
+@socket.event
+def addUser(data):
+    addPersona(data["name"])
+    socket.emit("updateUsers", data)
+
+
+@socket.event
+def client_connected(data):
+    sid = data["sid"]
+    res = getPersone()
+    ret = [ele[0] for ele in res]
+    socket.emit("firstUpdate", {"names": ret}, to=sid)
+
+
+@socket.event
+def getPairs(data):
+    clearCoppie()
+    res = shuffle()
+    socket.emit("pairsRes", res)
 
 
 if __name__ == "__main__":
