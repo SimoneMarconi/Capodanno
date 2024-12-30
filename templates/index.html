@@ -15,7 +15,7 @@
     <div id="AntipastoDiv"><b>Antipasto</b> Budget:
         {%if budget["AntipastoUsed"] > budget["Antipasto"]%}
         <p class="Para" style="color: red; display: inline;">{{budget["AntipastoUsed"]}}/{{budget["Antipasto"]}}</p>
-        {%elif budget["AntipastoUsed"] < budget["Antipasto"]%} <p class="Para">
+        {%elif budget["AntipastoUsed"] <= budget["Antipasto"]%} <p class="Para">
             {{budget["AntipastoUsed"]}}/{{budget["Antipasto"]}}
             </p>
             {%endif%}
@@ -25,7 +25,7 @@
     <div id="PrimoDiv"><b>Primo</b> Budget:
         {%if budget["PrimoUsed"] > budget["Primo"]%}
         <p class"Para" style="color: red; display: inline;">{{budget["PrimoUsed"]}}/{{budget["Primo"]}}</p>
-        {%elif budget["PrimoUsed"] < budget["Primo"]%} <p class="Para">{{budget["PrimoUsed"]}}/{{budget["Primo"]}}
+        {%elif budget["PrimoUsed"] <= budget["Primo"]%} <p class="Para">{{budget["PrimoUsed"]}}/{{budget["Primo"]}}
             </p>
             {%endif%}
     </div>
@@ -34,7 +34,7 @@
     <div id="SecondoDiv"><b>Secondo</b> Budget:
         {%if budget["SecondoUsed"] > budget["Secondo"]%}
         <p class"Para" style="color: red; display: inline;">{{budget["SecondoUsed"]}}/{{budget["Secondo"]}}</p>
-        {%elif budget["SecondoUsed"] < budget["Secondo"]%} <p class="Para">
+        {%elif budget["SecondoUsed"] <= budget["Secondo"]%} <p class="Para">
             {{budget["SecondoUsed"]}}/{{budget["Secondo"]}}
             </p>
             {%endif%}
@@ -44,7 +44,7 @@
     <div id="DolceDiv"><b>Dolce</b> Budget:
         {%if budget["DolceUsed"] > budget["Dolce"]%}
         <p class"Para" style="color: red; display: inline;">{{budget["DolceUsed"]}}/{{budget["Dolce"]}}</p>
-        {%elif budget["DolceUsed"] < budget["Dolce"]%} <p class="Para">
+        {%elif budget["DolceUsed"] <= budget["Dolce"]%} <p class="Para">
             {{budget["DolceUsed"]}}/{{budget["Dolce"]}}
             </p>
             {%endif%}
@@ -54,7 +54,7 @@
     <div id="BereDiv"><b>Bere</b> Budget:
         {%if budget["BereUsed"] > budget["Bere"]%}
         <p class"Para" style="color: red; display: inline;">{{budget["BereUsed"]}}/{{budget["Bere"]}}</p>
-        {%elif budget["BereUsed"] < budget["Bere"]%} <p class="Para">
+        {%elif budget["BereUsed"] <= budget["Bere"]%} <p class="Para">
             {{budget["BereUsed"]}}/{{budget["Bere"]}}
             </p>
             {%endif%}
@@ -64,7 +64,7 @@
     <div id="BottiDiv"><b>Botti</b> Budget:
         {%if budget["BottiUsed"] > budget["Botti"]%}
         <p class"Para" style="color: red; display: inline;">{{budget["BottiUsed"]}}/{{budget["Botti"]}}</p>
-        {%elif budget["BottiUsed"] < budget["Botti"]%} <p class="Para">
+        {%elif budget["BottiUsed"] <= budget["Botti"]%} <p class="Para">
             {{budget["BottiUsed"]}}/{{budget["Botti"]}}
             </p>
             {%endif%}

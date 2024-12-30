@@ -1,2 +1,5 @@
 .venv/**
 data/**
+package-lock.json
+package.json
+test.db
